@@ -1,0 +1,15 @@
+@startuml
+title Порядок захвата вилок
+start
+:THINKING (Sleep);
+if (номер философа чётный?) then (да)
+  :первой захватить ЛЕВУЮ вилку\n(WaitForSingleObject);
+  :затем ПРАВУЮ;
+else (нет)
+  :первой захватить ПРАВУЮ вилку\n(WaitForSingleObject);
+  :затем ЛЕВУЮ;
+endif
+:EATING (Sleep);
+:освободить вилки (ReleaseMutex)\nв обратном порядке;
+stop
+@enduml

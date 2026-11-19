@@ -1,0 +1,10 @@
+@startuml
+title Состояния философа (вариант 4, асимметричный захват)
+[*] --> THINKING
+THINKING --> WAITING : размышление закончено
+WAITING --> EATING : обе вилки захвачены (Mutex)
+WAITING --> FINISHED : тайм-аут ожидания вилки
+EATING --> THINKING : вилки освобождены
+THINKING --> FINISHED : выполнено OPERATIONS приёмов пищи
+FINISHED --> [*]
+@enduml
